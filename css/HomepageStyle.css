@@ -1,4 +1,5 @@
 .simple-liner
         {
-            background: linear-gradient(red, blue);
+            background: rgb(99,99,99);
+            background: linear-gradient(0deg, rgba(99,99,99,1) 0%, rgba(56,56,56,1) 51%, rgba(23,23,23,1) 100%);
         }
