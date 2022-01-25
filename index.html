@@ -5,29 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tetris</title>
-    <link rel="stylesheet" href="./css/HomepageStyle.css" defer>
-    <script src="JS/jquery-1.9.1.min.js"></script>
-	<script src="JS/jquery.easing.min.js"></script>
-    <script src="JS/canvas.js" defer></script>
-    <script src="JS/constants.js" defer></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styles.css" >
+
+    <script type="text/javascript" src="JS/main.js" ></script>
+    <script type="text/javascript" src="JS/constants.js" ></script>
+    <script type="text/javascript" src="JS/board.js" ></script>
+    <script type="text/javascript" src="JS/piece.js" ></script>
+    
 </head>
 <body>
-    <div class="container">
-        <div class="grid">
-            <canvas id="gameScreen" class="game"></canvas>    
-            <div id="statusScreen" class="right-column">
-                <div>
-                    <h1>TETRIS</h1>
-                    <p>Score: <span id="score">0</span></p>
-                    <p>Lines: <span id="lines">0</span></p>
-                    <p>Level: <span id="level">0</span></p>
-                    <canvas id="next" class="next"></canvas>
-                </div>
-                <button onclick="play()" class="play-button">Play</button>
-            </div>
+    <div class="grid">
+        <canvas id="board" class="game-board"></canvas>
+        <div class="right-column">
+          <div>
+            <h1>TETRIS</h1>
+            <p>Score: <span id="score">0</span></p>
+            <p>Lines: <span id="lines">0</span></p>
+            <p>Level: <span id="level">0</span></p>
+            <canvas id="next" class="next"></canvas>
+          </div>
+          <button onclick="play()" class="play-button">Play</button>
         </div>
-    </div>
-    
+      </div>
 </body>
 </html>
 
