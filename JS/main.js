@@ -8,6 +8,14 @@ ctx.canvas.height = ROWS * BLOCK_SIZE;
 // 블록의 크기를 변경한다.
 ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
 
+function play() {
+  board.getEmptyBoard();
+  let piece = new Piece(ctx);
+  piece.draw();
+  
+  board.piece = piece;
+
+}
 
 const moves = {
   [KEY.LEFT]:  p => ({ ...p, x: p.x - 1 }),
@@ -38,12 +46,3 @@ document.addEventListener('keydown', event => {
     }
   }
 });
-
-function play() {
-  board.getEmptyBoard();
-  let piece = new Piece(ctx);
-  piece.draw();
-  
-  board.piece = piece;
-
-}
