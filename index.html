@@ -8,26 +8,29 @@
     
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css" >
-   
+
     <script type="text/javascript" src="JS/constants.js" ></script>
     <script type="text/javascript" src="JS/board.js" ></script>
     <script type="text/javascript" src="JS/piece.js" ></script>
+    <script type="text/javascript" src="JS/main.js" ></script>
 </head>
 <body>
     <div class="grid">
-        <canvas id="board" class="game-board"></canvas>
-        <script type="text/javascript" src="JS/main.js" ></script>
-        <div class="right-column">
-          <div>
-            <h1>TETRIS</h1>
-            <p>Score: <span id="score">0</span></p>
-            <p>Lines: <span id="lines">0</span></p>
-            <p>Level: <span id="level">0</span></p>
-            <canvas id="next" class="next"></canvas>
-          </div>
-          <button onclick="play()" class="play-button">Play</button>
+      <canvas id="board" class="game-board"></canvas>
+      <script type="text/javascript" src="JS/main.js" ></script>
+      <div class="right-column">
+        <div>
+          <h1>TETRIS</h1>
+          <p>Score: <span id="score">0</span></p>
+          <p>Lines: <span id="lines">0</span></p>
+          <p>Level: <span id="level">0</span></p>
+          <canvas id="next" class="next"></canvas>
         </div>
+        <button onclick="play()" class="play-button">Play</button>
       </div>
+    </div>
+
+    
 
 </body>
 </html>
