@@ -12,4 +12,6 @@ class Board {
         {length: ROWS}, () => Array(COLS).fill(0)
       );
     }
+    
+    
   }
