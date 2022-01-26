@@ -1,11 +1,11 @@
 const canvas = document.getElementById('board');
 const ctx = canvas.getContext('2d');
 
-// 상수를 사용해 캔버스의 크기를 계산한다.
+// Calculate size of canvas from constants.
 ctx.canvas.width = COLS * BLOCK_SIZE;
 ctx.canvas.height = ROWS * BLOCK_SIZE;
 
-// 블록의 크기를 변경한다.
+// Scale blocks
 ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
 
 let board = new Board();
@@ -22,27 +22,33 @@ function play() {
 moves = {
   [KEY.LEFT]:  p => ({ ...p, x: p.x - 1 }),
   [KEY.RIGHT]: p => ({ ...p, x: p.x + 1 }),
-  [KEY.UP]:    p => ({ ...p, y: p.y + 1 })
+  [KEY.DOWN]:    p => ({ ...p, y: p.y + 1 }),
+  [KEY.SPACE]: p => ({ ...p, y: p.y + 1 })
 };
-
-
 
 document.addEventListener('keydown', event => {
   if (moves[event.keyCode]) {  
-    // 이벤트 버블링을 막는다.
+    // Stop the event from bubbling.
     event.preventDefault();
     
-    // 조각의 새 상태를 얻는다.
+    // Get new state of piece
     let p = moves[event.keyCode](board.piece);
     
     if (board.valid(p)) {    
-      // 이동이 가능한 상태라면 조각을 이동한다.
+      // If the move is valid, move the piece.
       board.piece.move(p);
       
-      // 그리기 전에 이전 좌표를 지운다.
+      // Clear old position before drawing.
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); 
       
       board.piece.draw();
+    }
+    if (event.keyCode === KEY.SPACE) {
+      // 하드 드롭한다.
+      while (board.valid(p)) {
+        board.piece.move(p);   
+        p = moves[KEY.DOWN](board.piece);
+      }
     }
   }
 });
